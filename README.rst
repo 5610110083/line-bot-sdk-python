@@ -139,7 +139,7 @@ https://devdocs.line.me/en/#get-content
 
 .. code:: python
 
-    message_content = line_bot_api.get_content(message_id)
+    message_content = line_bot_api.get_message_content(message_id)
 
     with open(file_path, 'wb') as fd:
         for chunk in message_content.iter_content():
@@ -178,7 +178,7 @@ https://devdocs.line.me/en/#error-response
 
     try:
         line_bot_api.push_message('to', TextSendMessage(text='Hello World!'))
-    except linebot.LineBotApiError as e:
+    except linebot.exceptions.LineBotApiError as e:
         print(e.status_code)
         print(e.error.message)
         print(e.error.details)
